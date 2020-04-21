@@ -1,4 +1,5 @@
 #include "Stiva.h"
+#include "Exceptions.h"
 
 Stiva::Stiva():Vector(),front(-1) {
 	this->capacity = 4;		// Add first memory
@@ -19,7 +20,7 @@ Stiva& Stiva::operator=(const Stiva& other) {
 }
 
 Complex Stiva::pop() {
-	if (front == -1) throw 10;
+	if (front == -1) throw ExceptionOutOfMemory();
 	Complex res = memory[front--];
 
 	return res;

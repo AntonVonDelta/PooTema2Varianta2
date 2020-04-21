@@ -2,6 +2,7 @@
 #include <fstream>
 #include "Stiva.h"
 #include "Coada.h"
+#include "Exceptions.h"
 
 using namespace std;
 
@@ -54,8 +55,10 @@ int main() {
 	cout << "######## Test: underflow pt. pop:" << endl;
 	try {
 		stiva.pop();
-	} catch (int ex) {
-		cout << "eroare captata: " << ex<<endl;
+		stiva.pop();
+		stiva.pop();		// This actually produces the error
+	} catch (std::exception& ex) {
+		cout << "eroare captata: " << ex.what()<<endl;
 	}
 
 	/////////////////////////////////////
@@ -103,8 +106,29 @@ int main() {
 
 	try {
 		coada.pop();
-	} catch (int ex) {
-		cout << "eroare captata: " << ex << endl;
+	} catch (exception& ex) {
+		cout << "eroare captata: " << ex.what() << endl;
+	}
+
+
+	/////////////////////////////////////
+	cout << endl;
+	cout << "########################## Vector #######################" << endl;
+	cout << endl;
+
+	cout << endl;
+	cout << "######## Test: exceptie pentru Vector.pop/push:" << endl;
+	Vector test_vector;
+
+	try {
+		test_vector.pop();
+	} catch (exception & ex) {
+		cout << "eroare captata: " << ex.what() << endl;
+	}
+	try {
+		test_vector.push({0,0});
+	} catch (exception & ex) {
+		cout << "eroare captata: " << ex.what() << endl;
 	}
 	return 0;
 }

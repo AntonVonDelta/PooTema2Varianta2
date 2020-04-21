@@ -1,4 +1,6 @@
 #include "Coada.h"
+#include "Exceptions.h"
+
 Coada::Coada():Vector(),end(0),front(-1){
 	capacity = 4;
 	memory = new Complex[capacity];
@@ -36,8 +38,8 @@ void Coada::push(Complex nr) {
 }
 
 Complex Coada::pop() {
-	if (end > front) throw 10;
-	if (end == capacity) throw 10;
+	if (end > front) throw ExceptionOutOfMemory();
+	if (end == capacity) throw ExceptionOutOfMemory();
 	
 	Complex res=memory[end++];
 	remap();

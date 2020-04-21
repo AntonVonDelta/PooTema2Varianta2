@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="Coada.cpp" />
     <ClCompile Include="Complex.cpp" />
+    <ClCompile Include="Exceptions.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Stiva.cpp" />
     <ClCompile Include="Vector.cpp" />
@@ -147,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="Coada.h" />
     <ClInclude Include="Complex.h" />
+    <ClInclude Include="Exceptions.h" />
     <ClInclude Include="Stiva.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>

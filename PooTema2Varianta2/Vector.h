@@ -1,5 +1,6 @@
 #pragma once
 #include "Complex.h"
+#include "Exceptions.h"
 #include <iostream>
 
 class Vector {
@@ -15,13 +16,13 @@ public:
 
 	Vector& operator=(const Vector&);
 
-	// I need this class NOT to be abstract otherwise I can't use in in the extended classes
+	// I need this class NOT to be abstract otherwise I can't use in in the extended classes (e.g in cout and cin I construct a temp array of objects of this class)
 	// Thus I can't make these two methods abstract...nevermind..just throw error
 	virtual void push(Complex) {
-		throw 22;		// Not implemented
+		throw NotImplemented();		// Not implemented
 	}
 	virtual Complex pop() {
-		throw 22;		// Not implemented
+		throw NotImplemented();		// Not implemented
 	}
 
 	friend std::ostream& operator<<(std::ostream&, const Vector&);
